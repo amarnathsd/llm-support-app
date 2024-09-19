@@ -104,7 +104,7 @@ const Analytics = ({ data }) => {
        <div>
        <div className="pie-chart p-3">
           <div className="">
-            <div className="d-flex">
+            <div className="d-flex justify-content-end">
               <h3 className="mb-2">Experience Level Share in </h3>
               <div className="d-flex justify-content-end mb-1 mt-1">
                 <select
