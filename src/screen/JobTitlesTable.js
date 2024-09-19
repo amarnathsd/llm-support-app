@@ -22,9 +22,11 @@ const JobTitlesTable = ({ data, year }) => {
   const jobTitlesData = getJobTitlesData();
 
   return (
-    <div>
-      <h3>Job Titles for {year}</h3>
-      <Table striped bordered hover>
+    <div className="d-flex justify-content-center text-center">
+      <div>
+        <h3>Job Titles for {year}</h3>
+        <div className="table-container">
+      <Table className="custom-table">
         <thead>
           <tr>
             <th>Job Title</th>
@@ -40,6 +42,8 @@ const JobTitlesTable = ({ data, year }) => {
           ))}
         </tbody>
       </Table>
+    </div>
+      </div>
     </div>
   );
 };

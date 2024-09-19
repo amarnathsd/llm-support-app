@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import MainTable from "./components/MainTable";
-import Analytics from "./components/Analytics";
-import JobTitlesTable from "./components/JobTitlesTable";
+import MainTable from "./screen/MainTable";
+import Analytics from "./screen/Analytics";
+import JobTitlesTable from "./screen/JobTitlesTable";
+import ChatApp from "./screen/ChatApp"; // Import the ChatApp component
 import axios from "axios";
 import Papa from "papaparse";
-import { Container } from "react-bootstrap";
+
 
 function App() {
   const [data, setData] = useState([]);
@@ -13,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("./dataset/salaries.csv"); 
+        const response = await axios.get("./dataset/salaries.csv");
         Papa.parse(response.data, {
           header: true,
           skipEmptyLines: true,
@@ -30,15 +31,27 @@ function App() {
 
   const handleYearClick = (year) => {
     setSelectedYear(year);
+    setTimeout(() => {
+      const element = document.getElementById("job-titles-table");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); 
   };
 
   return (
-    <Container>
-      <h1>Machine Learning Engineer Salary Dashboard</h1>
+    <div>
+      <h1 className="header p-2 text-center w-100">Machine Learning Engineer Salary Dashboard</h1>
+      <p className="text-center mb-0">Click on any year in year column to see detailed view of data</p>
       <MainTable data={data} onYearClick={handleYearClick} />
       <Analytics data={data} />
-      {selectedYear && <JobTitlesTable data={data} year={selectedYear} />}
-    </Container>
+      {selectedYear && (
+        <div id="job-titles-table">
+          <JobTitlesTable data={data} year={selectedYear} />
+        </div>
+      )}
+      <ChatApp data={data} />
+    </div>
   );
 }
 

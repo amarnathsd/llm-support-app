@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+body {
+  background-color: #e4f0fd; 
+  font-family: 'Playfair Display', serif;
+  color: #333; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+.header{
+  background-color: #6c63ff;
+  border-bottom: 2px solid;
+}
+.pie-chart{
+  margin-left: 65px;
+}
+
+.line-chart{
+  margin-left: 25px;
+}
+
+.hover-div{
+  position: absolute;
+  background-color: #6c63ff;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 4px;
   pointer-events: none;
+  transform: translate(-50%, -100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.table-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #170ce7;
+  background-color: #e4f0fd; 
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Table styles */
+.custom-table {
+  width: 75%;
+  border-collapse: collapse;
+  background-color: white;
+  font-family: 'Arial', sans-serif; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px;
+  overflow: hidden; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.custom-table thead th {
+  background-color: #6c63ff; 
+  color: white;
+  padding: 10px 20px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.custom-table tbody tr td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  text-align: left;
+}
+
+
+.custom-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+.custom-table th, .custom-table td {
+  border: none;
+}
+
+.year-dropdown{
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+
+.response{
+  min-height: 20vh;
+  max-height: 100vh;
+  border: 1px solid #6c63ff;
+  border-radius: 10px;
+}
+
+@media (min-width: 760px) {
+  .charts-container {
+    flex-direction: row;
   }
-  to {
-    transform: rotate(360deg);
+
+  .line-chart{
+    margin-left: 1px;
+  }
+  
+}
+
+@media (max-width: 760px) {
+  .charts-container {
+    flex-direction: column;
+  }
+
+  .line-chart{
+    margin-left: 1px;
   }
 }
