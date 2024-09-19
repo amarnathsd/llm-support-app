@@ -82,7 +82,7 @@ const Analytics = ({ data }) => {
 
   return (
     <div>
-      <div className="charts-container d-flex mt-5">
+      <div className="charts-container d-flex justify-content-center mt-5">
       <div className="line-chart p-3">
           <div className="text-center">
             <h3 className="mb-3">Line Chart: Jobs Over Time</h3>
